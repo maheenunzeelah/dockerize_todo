@@ -1,8 +1,5 @@
-import {useState,useEffect} from 'react';
 import { TodoList } from './TodoList';
-
 export const Todo=({todos,add,deleteTodo,value,setValue})=>{
-    // const [val,setVal]=useState(value)
     const addtodo=async (e)=>{
         e.preventDefault();
         if(value.val!="")
@@ -10,9 +7,7 @@ export const Todo=({todos,add,deleteTodo,value,setValue})=>{
        
          
     }
-//  useEffect(()=>{
-// setVal(value)
-//  },[value])
+
     const onChange=(e)=>{
       const id=Math.floor(Math.random()*10)
      

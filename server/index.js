@@ -22,14 +22,14 @@ client.on('connect', function () {
 client.set("todos",JSON.stringify([]))
 
 //Express route handler
-app.get('/todos',(req,res)=>{
+app.get('/get-todos',(req,res)=>{
   client.get('todos',(err,todos)=>{
 
     res.send(JSON.parse(todos))
 
   })
 });
-app.post('/todos',(req,res)=>{
+app.post('/post-todos',(req,res)=>{
     try{
       
         client.get('todos',(err,todos)=>{
@@ -47,7 +47,7 @@ app.post('/todos',(req,res)=>{
  }
     
   });
-app.delete('/todos/delete/:id',(req,res)=>{
+app.delete('/delete-todos/:id',(req,res)=>{
 
   const id=req.params.id
   client.get('todos',(err,todos)=>{

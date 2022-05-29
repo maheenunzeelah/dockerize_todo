@@ -1,19 +1,18 @@
 import { useState,useEffect } from 'react';
 import {Todo} from './components/Todo';
-import axios from "./utils/auth-header";
+import axios from "axios";
 function App() {
   const [todos,setTodos]=useState([]);
   const [value,setValue]=useState({})
   const deleteTodo=async (id)=>{
-    const filteredTodos= await axios.delete(`todos/delete/${id}`)
-   
-  
-    setTodos(filteredTodos)
+    const result= await axios.delete(`/api/delete-todos/${id}`)
+    setTodos(result.data)
    
   }
+  
   const add= async (todo)=>{
   try{
-   const result= await axios.post("todos",todo)
+   const result= await axios.post("/api/post-todos",todo)
   setValue({...value,val:'',id:''})
    setTodos(result.data)
   }
@@ -25,7 +24,7 @@ function App() {
     const fetchData=async()=>{
       try{
       
-        const initial=await axios.get("todos");
+        const initial=await axios.get("/api/get-todos");
         setTodos(initial.data)
       }
   catch(err){
