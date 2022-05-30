@@ -1,0 +1,20 @@
+sudo: required
+services:
+      - docker
+
+before_install:
+      - docker build -t maheen299/react-test  -f   ./client/Dockerfile.dev ./client    
+
+script:
+      - docker run maheen299/react-test npm test -- --coverage
+
+after_success: 
+      - docker build -t maheen299/multi-client ./client
+      - docker build -t maheen299/react-nginx ./nginx
+      - docker build -t maheen299/react-server ./server 
+      
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+      - docker push maheen299/multi-client 
+      - docker push maheen299/multi-server 
+      - docker push maheen299/ngnix
