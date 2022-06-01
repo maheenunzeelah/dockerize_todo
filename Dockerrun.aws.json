@@ -3,7 +3,7 @@
     "containerDefinitions":[
         {
             "name":"client",
-            "image": "maheen299/multi-client",
+            "Image": "maheen299/multi-client",
             "hostname": "client",
             "memory": 100,
             "essential": false,
@@ -15,8 +15,8 @@
             ]
         },
         {
-            "name":"server",
-            "image": "maheen299/multi-server",
+            "Name":"server",
+            "Image": "maheen299/multi-server",
             "hostname": "api",
             "memory": 100,
             "essential":false,
@@ -29,7 +29,7 @@
         },
         {
 			"essential": true,
-			"image": "redis:latest",
+			"Image": "redis:latest",
 			"memory": 100,
 			"name": "redis",
 			"Ports": [{
@@ -39,7 +39,7 @@
 		},
         {
             "name":"nginx",
-            "image": "maheen299/multi-nginx",
+            "Image": "maheen299/multi-nginx",
             "hostname":"nginx",
             "essential":true,
             "memory": 100,
