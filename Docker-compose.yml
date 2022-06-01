@@ -11,7 +11,9 @@ services:
          - "4000:80"  
        depends_on:
          - 'api'
-         - 'client'  
+         - 'client' 
+       expose:
+         - "4000"
     api:
        build:
         dockerfile: Dockerfile.dev

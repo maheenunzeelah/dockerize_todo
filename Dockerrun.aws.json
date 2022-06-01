@@ -7,7 +7,7 @@
             "hostname": "client",
             "memory": 100,
             "essential": false,
-            "portMappings": [
+            "Ports": [
                 {
                     "hostPort": 3000,
                     "containerPort": 3000
@@ -20,7 +20,7 @@
             "hostname": "api",
             "memory": 100,
             "essential":false,
-            "portMappings": [
+            "Ports": [
                 {
                     "hostPort": 5000,
                     "containerPort": 5000
@@ -32,7 +32,7 @@
 			"image": "redis:latest",
 			"memory": 100,
 			"name": "redis",
-			"portMappings": [{
+			"Ports": [{
 				"containerPort": 6379,
 				"hostPort": 6379
 			}]
@@ -43,7 +43,7 @@
             "hostname":"nginx",
             "essential":true,
             "memory": 100,
-            "portMappings":[
+            "Ports":[
                 {
                     "hostPort":80,
                     "containerPort":80
