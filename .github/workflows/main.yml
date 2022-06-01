@@ -89,7 +89,6 @@ jobs:
   deploy:
       name: Deploy
       runs-on: ubuntu-latest
-      environment: production
       needs: build
       steps:
         - name: Checkout
@@ -97,13 +96,16 @@ jobs:
         - name: Generate deployment package
           run: zip -r deploy.zip . -x '*.git*'
         - name: Configure AWS credentials
-          uses: einaregilsson/beanstalk-deploy@v20
+          uses: aws-actions/configure-aws-credentials@v1
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: us-east-1
-            application-name: multi-docker
-            environment-name: Multidocker-env-1
+        - name: Upload on beanstalk
+          uses: einaregilsson/beanstalk-deploy@v16  
+          with:
+             application_name: multi-docker
+             environment_name: Multidocker-env-1   
        
           
 
