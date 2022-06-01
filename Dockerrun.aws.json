@@ -14,6 +14,16 @@
             "essential":false
         },
         {
+			"essential": true,
+			"image": "redis:latest",
+			"memory": 100,
+			"name": "redis",
+			"portMappings": [{
+				"containerPort": 6379,
+				"hostPort": 6379
+			}]
+		},
+        {
             "name":"nginx",
             "image": "maheen299/multi-nginx",
             "hostname":"nginx",
