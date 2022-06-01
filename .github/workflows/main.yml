@@ -109,8 +109,9 @@ jobs:
         - name: Upload on beanstalk
           uses: einaregilsson/beanstalk-deploy@v16  
           with:
-             aws-access-key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-             aws-secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+             aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+             aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+             aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
              application_name: ${{ env.APPLICATION_NAME }}
              environment_name: ${{ env.ENVIRONMENT_NAME }}
              region: us-east-1
