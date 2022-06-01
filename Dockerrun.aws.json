@@ -1,0 +1,33 @@
+{
+    "AWSEBDockerrunVersion":2,
+    "containerDefinitions":[
+        {
+            "name":"client",
+            "image": "maheen299/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name":"server",
+            "image": "maheen299/multi-server",
+            "hostname": "api",
+            "essential":false
+        },
+        {
+            "name":"nginx",
+            "image": "maheen299/multi-nginx",
+            "hostname":"nginx",
+            "essential":true,
+            "portMappings":[
+                {
+                    "hostPort":80,
+                    "containerPort":80
+                }
+            ],
+            "links":[
+                "client",
+                "server"
+            ]
+        }    
+    ]
+}
