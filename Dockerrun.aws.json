@@ -6,14 +6,26 @@
             "image": "maheen299/multi-client",
             "hostname": "client",
             "memory": 100,
-            "essential": false
+            "essential": false,
+            "portMappings": [
+                {
+                    "hostPort": 3000,
+                    "containerPort": 3000
+                }
+            ]
         },
         {
             "name":"server",
             "image": "maheen299/multi-server",
             "hostname": "api",
             "memory": 100,
-            "essential":false
+            "essential":false,
+            "portMappings": [
+                {
+                    "hostPort": 5000,
+                    "containerPort": 5000
+                }
+            ]
         },
         {
 			"essential": true,
