@@ -111,6 +111,7 @@ jobs:
           with:
              application_name: ${{ env.APPLICATION_NAME }}
              environment_name: ${{ env.ENVIRONMENT_NAME }}
+             aws-region: us-east-1
        
           
 
