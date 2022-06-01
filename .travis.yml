@@ -11,7 +11,7 @@ script:
 after_success: 
       - docker build -t maheen299/multi-client ./client
       - docker build -t maheen299/multi-nginx ./nginx
-      - docker build -t maheen299/multi-server ./server 
+      - docker build -t maheen299/multi-server ./server     
        # Docker LOgin
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     
