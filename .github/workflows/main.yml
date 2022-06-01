@@ -116,7 +116,6 @@ jobs:
              application_name: ${{ env.APPLICATION_NAME }}
              environment_name: ${{ env.ENVIRONMENT_NAME }}
              region: us-east-1
-             deployment_package: deploy.zip
        
           
 
