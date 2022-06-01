@@ -15,7 +15,10 @@ on:
   
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-
+env:
+      AWS_REGION: us-east-1                  # set this to your preferred AWS region, e.g. us-west-1
+      APPLICATION_NAME: multi-docker
+      ENVIRONMENT_NAME: Multidocker-env-1
 jobs:
   
   # test:
@@ -85,7 +88,8 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }} 
-
+          # set this to your Amazon ECR repository name
+     
   deploy:
       name: Deploy
       runs-on: ubuntu-latest
@@ -104,8 +108,8 @@ jobs:
         - name: Upload on beanstalk
           uses: einaregilsson/beanstalk-deploy@v16  
           with:
-             application_name: multi-docker
-             environment_name: Multidocker-env-1   
+             application_name: ${{ env.APPLICATION_NAME }}
+             environment_name: ${{ env.ENVIRONMENT_NAME }}
        
           
 
