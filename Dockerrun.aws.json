@@ -5,12 +5,14 @@
             "name":"client",
             "image": "maheen299/multi-client",
             "hostname": "client",
+            "memory": 100,
             "essential": false
         },
         {
             "name":"server",
             "image": "maheen299/multi-server",
             "hostname": "api",
+            "memory": 100,
             "essential":false
         },
         {
@@ -28,6 +30,7 @@
             "image": "maheen299/multi-nginx",
             "hostname":"nginx",
             "essential":true,
+            "memory": 100,
             "portMappings":[
                 {
                     "hostPort":80,
