@@ -9,8 +9,8 @@
             "essential": false,
             "Ports": [
                 {
-                    "hostPort": 3000,
-                    "containerPort": 3000
+                    "HostPort": 3000,
+                    "ContainerPort": 3000
                 }
             ]
         },
@@ -22,8 +22,8 @@
             "essential":false,
             "Ports": [
                 {
-                    "hostPort": 5000,
-                    "containerPort": 5000
+                    "HostPort": 5000,
+                    "ContainerPort": 5000
                 }
             ]
         },
@@ -33,8 +33,8 @@
 			"memory": 100,
 			"name": "redis",
 			"Ports": [{
-				"containerPort": 6379,
-				"hostPort": 6379
+				"ContainerPort": 6379,
+				"HostPort": 6379
 			}]
 		},
         {
@@ -45,8 +45,8 @@
             "memory": 100,
             "Ports":[
                 {
-                    "hostPort":80,
-                    "containerPort":80
+                    "HostPort":80,
+                    "ContainerPort":80
                 }
             ],
             "links":["client","server"]
